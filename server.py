@@ -16,8 +16,8 @@ def main():
 
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind(('', args.port))
-        s.listen(5)
+        s.bind(('', args.port))  # listen on all bound IPv4 addresses
+        s.listen(5)  # 5 tends to be default max queue in *nix
     except socket.error:
         print('Failed to bind to socket for port {}.'.format(args.port))
         if int(args.port) < 1024:  # privileged ports:
