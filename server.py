@@ -20,7 +20,7 @@ def main():
         s.listen(5)
     except socket.error:
         print('Failed to bind to socket for port {}.'.format(args.port))
-        if int(args.port) < 1025:  # privileged ports:
+        if int(args.port) < 1024:  # privileged ports:
             print("This is a privileged port, try:")
             print("  > sudo ./server.py -p {}".format(args.port))
         print('Ensure the port is not currently in use by another program.')
